@@ -59,6 +59,6 @@ else
 end
 
 puts "И вот твои результаты"
-puts count_of_tru_answer.to_s + "верных ответов!!!"
+puts count_of_tru_answer.to_s + " верных ответов!!!"
 
-puts count_error_answer.to_s + "неправильных ответов!!!"
+puts count_error_answer.to_s + " неправильных ответов!!!"
