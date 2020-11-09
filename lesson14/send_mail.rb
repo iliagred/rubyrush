@@ -30,6 +30,7 @@ send_to = STDIN.gets.chomp
 puts 'Что написать в письме?'
 body = STDIN.gets.encode('UTF-8').chomp
 
+begin
 # Отправляем письмо, используя класс Pony из библиотеки pony
 Pony.mail(
     subject: 'Привет из программы на руби!', # тема письма
@@ -82,5 +83,15 @@ Pony.mail(
 #
 # Или просто заведите тестовый ящик на одном из сервисо, ради такого дела :)
 )
-
 puts 'Письмо отправлено!'
+rescue SocketError
+    puts "Не могу соединиться с сервером. "
+rescue Net::SMTPSyntaxError => error
+    puts "Вы некорректно задали параметры письма: " + error.message
+rescue Net::SMTPAuthenticationError => error
+    puts "Неправильный пароль, попробуйте еще: " + error.message
+
+ensure
+    puts "Попытка отправки письма закончена"
+end
+#puts 'Письмо отправлено!'
