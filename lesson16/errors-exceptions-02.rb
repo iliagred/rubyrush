@@ -29,6 +29,6 @@ rescue ZeroDivisionError #=> error
 end
 #calc_result=first_user_input calc_user_input second_user_input
 
-puts "Результат:"
+#puts "Результат:"
 #puts calc_result
 
